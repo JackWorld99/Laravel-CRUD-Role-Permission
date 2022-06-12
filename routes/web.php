@@ -27,4 +27,8 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::resource('tasks',App\Http\Controllers\TaskController::class);
+Route::group(['middleware'=>'auth'],function(){
+    Route::resource('tasks',App\Http\Controllers\TaskController::class);
+    Route::resource('users',App\Http\Controllers\UserController::class);
+});
+
