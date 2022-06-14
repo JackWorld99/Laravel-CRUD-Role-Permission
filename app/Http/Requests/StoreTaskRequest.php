@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class StoreTaskRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StoreTaskRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Gate::allows('task_access');
     }
 
     /**
@@ -24,7 +25,9 @@ class StoreTaskRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'description'=>[
+                'required','string',
+            ]
         ];
     }
 }

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Request\StoreTaskRequest;
-use App\Http\Request\UpdateTaskRequest;
+use App\Http\Requests\StoreTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Task;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class TaskController extends Controller
 {
@@ -16,8 +18,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks=Task::all();
-        return view('tasks.index',compact('tasks'));
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $tasks = Task::all();
+        return view('tasks.index', compact('tasks'));
     }
 
     /**
@@ -27,6 +30,7 @@ class TaskController extends Controller
      */
     public function create()
     {
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         return view('tasks.create');
     }
 
@@ -50,7 +54,8 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        return view('tasks.show',compact('task'));
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        return view('tasks.show', compact('task'));
     }
 
     /**
@@ -61,7 +66,8 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        return view('tasks.edit',compact('task'));
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        return view('tasks.edit', compact('task'));
     }
 
     /**
@@ -85,6 +91,7 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
+        abort_if(Gate::denies('task_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $task->delete();
         return redirect()->route('tasks.index');
     }
