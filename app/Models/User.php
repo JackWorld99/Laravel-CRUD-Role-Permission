@@ -60,8 +60,8 @@ class User extends Authenticatable
     ];
 
     public function __construct(array $attributes=[]){
-        parent::__construct(attributes);
-        self::creatde(function (User $user){
+        parent::__construct($attributes);
+        self::created(function (User $user){
             if(!$user->roles()->get()->contains(2)){
                 $user->roles()->attach(2);
             }
