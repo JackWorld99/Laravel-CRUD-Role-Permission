@@ -99,6 +99,6 @@ class UserController extends Controller
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $user->delete();
-        return rediect()->route('users.index');
+        return redirect()->route('users.index');
     }
 }
