@@ -11,7 +11,7 @@
 
 ## Laravel Jetstream: CRUD with Role
 
-_Laravel Jetstream is a starter kit that can use not only Auth scaffolding, but additional features like Teams or two-factor authentication. This is a task management appliacation with role and CRUD functionality._
+_Laravel Jetstream is a starter kit that can use not only Auth scaffolding but additional features like Teams or two-factor authentication. This is a task management application with role and CRUD functionality._
 
 ### 💼 Role
 
