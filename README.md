@@ -65,3 +65,7 @@ _Laravel Jetstream is a starter kit that can use not only Auth scaffolding but a
 ---
 
 ### 🚩 [Reference](https://youtu.be/pyOcSEkG4Q0 "Reference")
+
+### 💼 Package
+
+-   [Laravel Disposable Email](https://github.com/Propaganistas/Laravel-Disposable-Email "Laravel Disposable Email")
