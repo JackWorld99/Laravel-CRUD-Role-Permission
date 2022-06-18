@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Propaganistas\LaravelDisposableEmail\DisposableEmailServiceProvider::class,
         /*
          * Application Service Providers...
          */
